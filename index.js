@@ -183,3 +183,9 @@ document.querySelector("#submit").addEventListener("click", () => {
   window.scrollTo(0, 0);
 });
 
+function blogPage(){
+  location.href = 'blog.html';
+}
+function homePage(){
+  location.href = 'index.html';
+}

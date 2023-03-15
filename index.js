@@ -73,10 +73,12 @@ const displayQuiz = (data) => {
   });
 };
 
+
+
 // EventListener for quiz submit button
-document.querySelector("#submit").addEventlistener("click", () => {
+document.querySelector("#submit").addEventListener("click", () => {
   if (answers.length < 6) {
-    return;
+        return;
   }
   quizTimer(true);
   answersContainer.innerHTML = `<div class="my-4">
@@ -89,13 +91,11 @@ document.querySelector("#submit").addEventlistener("click", () => {
     status: "",
     color: "",
   };
-
   for (let ans of answers) {
     if (ans.answer === ans.givenAns) {
       totalMark += 10;
     }
   }
-
   if (totalMark === 60) {
     grade.status = "Excellent";
     grade.color = "text-green-600";
@@ -107,7 +107,7 @@ document.querySelector("#submit").addEventlistener("click", () => {
     grade.color = "text-red-600";
   }
 
-  // data setting on local storage and getting data from local storage
+ // data setting on local storage and getting data from local storage
   let storage = JSON.parse(localStorage.getItem("result"));
   if (storage) {
     localStorage.setItem(
@@ -133,9 +133,8 @@ document.querySelector("#submit").addEventlistener("click", () => {
       ])
     );
   }
-
-  // Right side bar/ answer section
-  let x = setTimeout(() => {
+   // Right side bar/ answer section
+   let x = setTimeout(() => {
     showAnswers(answers);
     displayResult.innerHTML = `<div
     class="h-[220px] w-[220px] mx-auto mt-8 flex flex-col justify-center border-2 rounded-tr-[50%] rounded-bl-[50%]"
@@ -183,3 +182,4 @@ document.querySelector("#submit").addEventlistener("click", () => {
   }, 1500);
   window.scrollTo(0, 0);
 });
+
